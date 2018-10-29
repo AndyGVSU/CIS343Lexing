@@ -12,13 +12,14 @@ LINE		  { printf ("LINE"); }
 CIRCLE            { printf("CIRCLE"); }
 RECTANGLE         { printf("RECTANGLE"); }
 SET_COLOR         { printf("SET_COLOR"); }
-[0-9]+\.[0-9]*    { printf("FLOAT"); }
-[0-9]+[^0-9]      { printf("INT"); }
+[0-9]+?\.[0-9]*   { printf("FLOAT"); }
+[0-9]+            { printf("INT"); }
  
 [ \t]
 [\n]              { lines++; }
 .                 { printf("Error: Invalid Character on Line ");
-		    printf("%d",lines); 
+		    printf("%d",lines);
+		    printf("\n"); 
 		    return 1;
 		  }
 
